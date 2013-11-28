@@ -1,6 +1,6 @@
 ﻿using Boilerplate.Models;
 
-namespace Boilerplate.Data.Interfaces
+namespace Boilerplate.Data.Interfaces.Services
 {
     public interface IMessagingService
     {

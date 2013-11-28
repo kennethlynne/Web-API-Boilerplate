@@ -1,4 +1,4 @@
-﻿using Boilerplate.Data.Interfaces;
+﻿using Boilerplate.Data.Interfaces.Services;
 using Boilerplate.Models;
 
 namespace Boilerplate.Data
@@ -7,7 +7,7 @@ namespace Boilerplate.Data
     {
         public Message GetMessage()
         {
-            return new Message() {Text = "Hello world"};
+            return new Message() { Text = "Hello world" };
         }
     }
 }
