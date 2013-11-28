@@ -12,6 +12,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{E35204
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boilerplate.Tests", "Boilerplate.Tests\Boilerplate.Tests.csproj", "{FFDD740A-A430-4261-BBBD-268116942283}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boilerplate.Models", "Boilerplate.Models\Boilerplate.Models.csproj", "{C4F852EF-C178-496F-AF52-1D9B299ACCCC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boilerplate.Data", "Boilerplate.Data\Boilerplate.Data.csproj", "{59CBA718-69E9-4C24-9A1A-D899DF41FC70}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -26,6 +30,14 @@ Global
 		{FFDD740A-A430-4261-BBBD-268116942283}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FFDD740A-A430-4261-BBBD-268116942283}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FFDD740A-A430-4261-BBBD-268116942283}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4F852EF-C178-496F-AF52-1D9B299ACCCC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4F852EF-C178-496F-AF52-1D9B299ACCCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4F852EF-C178-496F-AF52-1D9B299ACCCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4F852EF-C178-496F-AF52-1D9B299ACCCC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59CBA718-69E9-4C24-9A1A-D899DF41FC70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59CBA718-69E9-4C24-9A1A-D899DF41FC70}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59CBA718-69E9-4C24-9A1A-D899DF41FC70}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59CBA718-69E9-4C24-9A1A-D899DF41FC70}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
