@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Boilerplate.TEsts")]
+[assembly: AssemblyTitle("Boilerplate.Tests")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Boilerplate.TEsts")]
-[assembly: AssemblyCopyright("Copyright ©  2013")]
+[assembly: AssemblyCompany("Making Waves")]
+[assembly: AssemblyProduct("Boilerplate.Tests")]
+[assembly: AssemblyCopyright("Copyright © Making Waves 2013")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("e467b056-7a22-4c68-a162-f832ceb5a8e3")]
+[assembly: Guid("23b09880-977b-4540-8cdb-54d35e4407a3")]
 
 // Version information for an assembly consists of the following four values:
 //

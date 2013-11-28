@@ -3,11 +3,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D34306E7-C182-4139-AD79-DEE8105F2D0A}</ProjectGuid>
+    <ProjectGuid>{FFDD740A-A430-4261-BBBD-268116942283}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Boilerplate.TEsts</RootNamespace>
-    <AssemblyName>Boilerplate.TEsts</AssemblyName>
+    <RootNamespace>Boilerplate.Tests</RootNamespace>
+    <AssemblyName>Boilerplate.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
