@@ -1,5 +1,6 @@
 ﻿using System.Web.Http;
 using Boilerplate.Data.Interfaces.Services;
+using Boilerplate.Models;
 using Boilerplate.Web.CORS;
 
 namespace Boilerplate.Web.Controllers
@@ -27,9 +28,9 @@ namespace Boilerplate.Web.Controllers
         /// <param name="message"></param>
         /// <returns></returns>
         [Route("messages/{message:minlength(2)}")]
-        public string GetMessage(string message)
+        public Message GetMessage(string message)
         {
-            return message;
+            return _messagingService.GetMessage();
         }
 
         /// <summary>
