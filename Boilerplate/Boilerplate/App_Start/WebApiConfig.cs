@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace Boilerplate
 {
@@ -12,6 +13,9 @@ namespace Boilerplate
             //Disable XML support, rmove as needed.
             var appXmlType = config.Formatters.XmlFormatter.SupportedMediaTypes.FirstOrDefault(m => m.MediaType == "application/xml");
             config.Formatters.XmlFormatter.SupportedMediaTypes.Remove(appXmlType);
+
+            var cors = new EnableCorsAttribute("*", "*", "*"); //Enable CORS globally
+            config.EnableCors();
         }
     }
 }
