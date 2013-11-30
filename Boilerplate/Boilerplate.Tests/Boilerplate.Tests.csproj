@@ -37,6 +37,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Web.Http, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Boilerplate\bin\System.Web.Http.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
@@ -51,15 +55,28 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="Controllers\MessageControllerTests.cs" />
+    <Compile Include="Mocks\MockMessagingService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Boilerplate.Data\Boilerplate.Data.csproj">
+      <Project>{59CBA718-69E9-4C24-9A1A-D899DF41FC70}</Project>
+      <Name>Boilerplate.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Boilerplate.Models\Boilerplate.Models.csproj">
+      <Project>{C4F852EF-C178-496F-AF52-1D9B299ACCCC}</Project>
+      <Name>Boilerplate.Models</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Boilerplate\Boilerplate.Web.csproj">
       <Project>{15b8935c-a542-45ed-9a6f-b380048f1e2b}</Project>
       <Name>Boilerplate.Web</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
