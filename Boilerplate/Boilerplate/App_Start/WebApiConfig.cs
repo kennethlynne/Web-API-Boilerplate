@@ -1,8 +1,7 @@
 ﻿using System.Linq;
 using System.Web.Http;
-using System.Web.Http.Cors;
 
-namespace Boilerplate
+namespace Boilerplate.Web.App_Start
 {
     public static class WebApiConfig
     {

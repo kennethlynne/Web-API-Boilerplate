@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using System.Web.Cors;
 using System.Web.Http.Cors;
 
-namespace Boilerplate.CORS
+namespace Boilerplate.Web.CORS
 {
     public class CustomCORSAttribute : Attribute, ICorsPolicyProvider
     {

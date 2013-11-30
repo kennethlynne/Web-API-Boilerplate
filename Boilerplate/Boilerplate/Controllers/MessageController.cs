@@ -1,8 +1,8 @@
 ﻿using System.Web.Http;
-using Boilerplate.CORS;
 using Boilerplate.Data.Interfaces.Services;
+using Boilerplate.Web.CORS;
 
-namespace Boilerplate.Controllers
+namespace Boilerplate.Web.Controllers
 {
     [RoutePrefix("api")]
     //[EnableCors(origins: "http://www.example.com", headers: "accept,content-type,origin,x-my-header", methods: "get,post", SupportsCredentials = true)]
