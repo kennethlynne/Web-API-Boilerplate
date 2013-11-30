@@ -1,5 +1,5 @@
 ﻿using System.Web.Http;
-using Boilerplate.Data.Interfaces;
+using Boilerplate.Data.Interfaces.Services;
 
 namespace Boilerplate.Controllers
 {
