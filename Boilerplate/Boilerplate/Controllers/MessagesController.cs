@@ -1,11 +1,11 @@
-﻿using System;
+﻿using Boilerplate.Data;
+using Boilerplate.Models;
+using Boilerplate.Web.CORS;
+using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using Boilerplate.Data;
-using Boilerplate.Models;
-using Boilerplate.Web.CORS;
 
 namespace Boilerplate.Web.Controllers
 {
@@ -24,7 +24,6 @@ namespace Boilerplate.Web.Controllers
             _uow = UoW;
         }
 
-
         [Route("messages/")]
         public IEnumerable<Message> GetAll()
         {
@@ -34,7 +33,18 @@ namespace Boilerplate.Web.Controllers
         [Route("messages/{id:int}")]
         public Message GetById(int id)
         {
-            return _uow.MessageRepository.GetById(id);
+            var message = _uow.MessageRepository.GetById(id);
+
+            if (message == null)
+            {
+                var resp = new HttpResponseMessage(HttpStatusCode.NotFound)
+                               {
+                                   Content = new StringContent(string.Format("No message with ID = {0}", id)),
+                                   ReasonPhrase = "Message ID Not Found"
+                               };
+                throw new HttpResponseException(resp);
+            }
+            return message;
         }
 
         [Route("messages")]
@@ -50,6 +60,5 @@ namespace Boilerplate.Web.Controllers
 
             return response;
         }
-
     }
 }
