@@ -50,6 +50,11 @@ namespace Boilerplate.Web.Controllers
         [Route("messages")]
         public HttpResponseMessage Post(Message message)
         {
+            if (!ModelState.IsValid)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
+            }
+
             var response = Request.CreateResponse(HttpStatusCode.Created);
 
             _uow.MessageRepository.Insert(new Message { Text = DateTime.Now.ToString("yyyyMMddHHmmss") });
