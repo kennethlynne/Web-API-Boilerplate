@@ -65,5 +65,11 @@ namespace Boilerplate.Web.Controllers
 
             return response;
         }
+
+        protected override void Dispose(bool disposing)
+        {
+            _uow.Dispose();
+            base.Dispose(disposing);
+        }
     }
 }
