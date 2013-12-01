@@ -1,6 +1,7 @@
 ﻿using Boilerplate.Data.Configuration;
 using Boilerplate.Models;
 using System;
+using System.Threading.Tasks;
 
 namespace Boilerplate.Data
 {
@@ -18,9 +19,14 @@ namespace Boilerplate.Data
             _context = context;
         }
 
-        public void Save()
+        public void SaveChanges()
         {
             _context.SaveChanges();
+        }
+
+        public Task SaveChangesAsync()
+        {
+            return _context.SaveChangesAsync();
         }
 
         private bool disposed = false;
@@ -43,19 +49,11 @@ namespace Boilerplate.Data
             GC.SuppressFinalize(this);
         }
 
-
-
-
-
-
-
-
         private Repository<Message> _messageRepository;
+
         public Repository<Message> MessageRepository
         {
             get { return _messageRepository ?? (_messageRepository = new Repository<Message>(_context)); }
         }
-
-
     }
 }

@@ -1,10 +1,10 @@
 ﻿using Boilerplate.Data.Configuration;
+using Boilerplate.Data.Interfaces.Repositories;
 using System;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
-using Boilerplate.Data.Interfaces.Repositories;
+using System.Threading.Tasks;
 
 namespace Boilerplate.Data
 {
@@ -19,12 +19,11 @@ namespace Boilerplate.Data
             DbSet = context.Set<TEntity>();
         }
 
-        public virtual IEnumerable<TEntity> Get(Expression<Func<TEntity, bool>> filter = null,
-                                                Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null, string includeProperties = "")
+        public virtual IQueryable<TEntity> Get(Expression<Func<TEntity, bool>> filter = null, string includeProperties = "")
         {
             IQueryable<TEntity> query = DbSet;
 
-            foreach (var property in includeProperties.Split(new char[] {','}, StringSplitOptions.RemoveEmptyEntries))
+            foreach (var property in includeProperties.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
             {
                 query = query.Include(property);
             }
@@ -34,17 +33,17 @@ namespace Boilerplate.Data
                 query = query.Where(filter);
             }
 
-            if (orderBy != null)
-            {
-                return orderBy(query).ToList();
-            }
-
-            return query.ToList();
+            return query;
         }
 
         public virtual TEntity GetById(object id)
         {
             return DbSet.Find(id);
+        }
+
+        public Task<TEntity> GetByIdAsync(object id)
+        {
+            return DbSet.FindAsync(id);
         }
 
         public virtual void Insert(TEntity entity)
@@ -54,7 +53,7 @@ namespace Boilerplate.Data
 
         public virtual void Delete(object id)
         {
-            Delete( GetById(id) );
+            Delete(GetById(id));
         }
 
         public virtual void Delete(TEntity entity)
