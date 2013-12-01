@@ -67,7 +67,7 @@
       <Project>{C4F852EF-C178-496F-AF52-1D9B299ACCCC}</Project>
       <Name>Boilerplate.Models</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Boilerplate\Boilerplate.Web.csproj">
+    <ProjectReference Include="..\Boilerplate.Web\Boilerplate.Web.csproj">
       <Project>{15b8935c-a542-45ed-9a6f-b380048f1e2b}</Project>
       <Name>Boilerplate.Web</Name>
     </ProjectReference>
