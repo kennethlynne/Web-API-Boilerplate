@@ -11,6 +11,9 @@ using System.Web.Http.Description;
 
 namespace Boilerplate.Web.Controllers
 {
+    /// <summary>
+    /// Get messages
+    /// </summary>
     [RoutePrefix("api")]
     [CustomCORS]
     public class MessagesController : ApiController
@@ -19,6 +22,10 @@ namespace Boilerplate.Web.Controllers
         public UnitOfWork _uow { get; set; }
 
         // GET api/Message
+        /// <summary>
+        /// Get a list of messages
+        /// </summary>
+        /// <returns>A list of messages</returns>
         [Route("messages/")]
         public IQueryable<Message> GetMessages()
         {
@@ -26,6 +33,11 @@ namespace Boilerplate.Web.Controllers
         }
 
         // GET api/Message/5
+        /// <summary>
+        /// Get a message
+        /// </summary>
+        /// <param name="id">Message id</param>
+        /// <returns>A message</returns>
         [ResponseType(typeof(Message))]
         [Route("messages/{id:int}")]
         public async Task<IHttpActionResult> GetMessage(int id)

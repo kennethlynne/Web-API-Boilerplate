@@ -420,8 +420,21 @@
         </member>
         <member name="T:Boilerplate.Web.Controllers.MessagesController">
             <summary>
-            Messages
+            Get messages
             </summary>
+        </member>
+        <member name="M:Boilerplate.Web.Controllers.MessagesController.GetMessages">
+            <summary>
+            Get a list of messages
+            </summary>
+            <returns>A list of messages</returns>
+        </member>
+        <member name="M:Boilerplate.Web.Controllers.MessagesController.GetMessage(System.Int32)">
+            <summary>
+            Get a message
+            </summary>
+            <param name="id">Message id</param>
+            <returns>A message</returns>
         </member>
     </members>
 </doc>
