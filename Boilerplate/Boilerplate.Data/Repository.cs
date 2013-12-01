@@ -10,10 +10,10 @@ namespace Boilerplate.Data
 {
     public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
     {
-        internal BoilerplateDbContext Context;
+        internal DbContext Context;
         internal DbSet<TEntity> DbSet;
 
-        public Repository(BoilerplateDbContext context)
+        public Repository(DbContext context)
         {
             Context = context;
             DbSet = context.Set<TEntity>();
