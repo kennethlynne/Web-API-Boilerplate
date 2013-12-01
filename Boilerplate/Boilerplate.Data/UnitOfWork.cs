@@ -49,11 +49,11 @@ namespace Boilerplate.Data
             GC.SuppressFinalize(this);
         }
 
-        private Repository<Message> _messageRepository;
+        private Repository<Article> _articleRepository;
 
-        public Repository<Message> MessageRepository
+        public Repository<Article> ArticleRepository
         {
-            get { return _messageRepository ?? (_messageRepository = new Repository<Message>(_context)); }
+            get { return _articleRepository ?? (_articleRepository = new Repository<Article>(_context)); }
         }
     }
 }

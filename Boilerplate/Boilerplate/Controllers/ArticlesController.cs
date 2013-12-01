@@ -12,60 +12,60 @@ using System.Web.Http.Description;
 namespace Boilerplate.Web.Controllers
 {
     /// <summary>
-    /// Get messages
+    /// Get Articles
     /// </summary>
     [RoutePrefix("api")]
     [CustomCORS]
-    public class MessagesController : ApiController
+    public class ArticlesController : ApiController
     {
         [Inject]
         public UnitOfWork _uow { get; set; }
 
-        // GET api/Message
+        // GET api/Article
         /// <summary>
-        /// Get a list of messages
+        /// Get a list of Articles
         /// </summary>
-        /// <returns>A list of messages</returns>
-        [Route("messages/")]
-        public IQueryable<Message> GetMessages()
+        /// <returns>A list of Articles</returns>
+        [Route("Articles/")]
+        public IQueryable<Article> GetArticles()
         {
-            return _uow.MessageRepository.Get();
+            return _uow.ArticleRepository.Get();
         }
 
-        // GET api/Message/5
+        // GET api/Article/5
         /// <summary>
-        /// Get a message
+        /// Get a article
         /// </summary>
-        /// <param name="id">Message id</param>
-        /// <returns>A message</returns>
-        [ResponseType(typeof(Message))]
-        [Route("messages/{id:int}")]
-        public async Task<IHttpActionResult> GetMessage(int id)
+        /// <param name="id">Article id</param>
+        /// <returns>A article</returns>
+        [ResponseType(typeof(Article))]
+        [Route("Articles/{id:int}")]
+        public async Task<IHttpActionResult> GetArticle(int id)
         {
-            Message message = await _uow.MessageRepository.GetByIdAsync(id);
-            if (message == null)
+            Article article = await _uow.ArticleRepository.GetByIdAsync(id);
+            if (article == null)
             {
                 return NotFound();
             }
 
-            return Ok(message);
+            return Ok(article);
         }
 
-        // PUT api/Message/5
-        [Route("messages/{id:int}", Name = "GetMessageById")]
-        public async Task<IHttpActionResult> PutMessage(int id, Message message)
+        // PUT api/Article/5
+        [Route("Articles/{id:int}", Name = "GetArticleById")]
+        public async Task<IHttpActionResult> PutArticle(int id, Article article)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != message.Id)
+            if (id != article.Id)
             {
                 return BadRequest();
             }
 
-            _uow.MessageRepository.Insert(message);
+            _uow.ArticleRepository.Insert(article);
 
             try
             {
@@ -73,7 +73,7 @@ namespace Boilerplate.Web.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (_uow.MessageRepository.GetById(id) == null)
+                if (_uow.ArticleRepository.GetById(id) == null)
                 {
                     return NotFound();
                 }
@@ -86,37 +86,37 @@ namespace Boilerplate.Web.Controllers
             return StatusCode(HttpStatusCode.Created);
         }
 
-        // POST api/Message
-        [ResponseType(typeof(Message))]
-        [Route("messages")]
-        public async Task<IHttpActionResult> PostMessage(Message message)
+        // POST api/Article
+        [ResponseType(typeof(Article))]
+        [Route("Articles")]
+        public async Task<IHttpActionResult> PostArticle(Article article)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            _uow.MessageRepository.Insert(message);
+            _uow.ArticleRepository.Insert(article);
             await _uow.SaveChangesAsync();
 
-            return CreatedAtRoute("GetMessageById", new { id = message.Id }, message);
+            return CreatedAtRoute("GetArticleById", new { id = article.Id }, article);
         }
 
-        // DELETE api/Message/5
-        [ResponseType(typeof(Message))]
-        [Route("messages/{id:int}")]
-        public async Task<IHttpActionResult> DeleteMessage(int id)
+        // DELETE api/Article/5
+        [ResponseType(typeof(Article))]
+        [Route("Articles/{id:int}")]
+        public async Task<IHttpActionResult> DeleteArticle(int id)
         {
-            Message message = await _uow.MessageRepository.GetByIdAsync(id);
-            if (message == null)
+            Article article = await _uow.ArticleRepository.GetByIdAsync(id);
+            if (article == null)
             {
                 return NotFound();
             }
 
-            _uow.MessageRepository.Delete(message);
+            _uow.ArticleRepository.Delete(article);
             await _uow.SaveChangesAsync();
 
-            return Ok(message);
+            return Ok(article);
         }
 
         protected override void Dispose(bool disposing)

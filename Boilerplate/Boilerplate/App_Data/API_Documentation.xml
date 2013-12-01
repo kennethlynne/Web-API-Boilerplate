@@ -418,23 +418,23 @@
             </summary>
             <param name="documentPath">The physical path to XML document.</param>
         </member>
-        <member name="T:Boilerplate.Web.Controllers.MessagesController">
+        <member name="T:Boilerplate.Web.Controllers.ArticlesController">
             <summary>
-            Get messages
+            Get Articles
             </summary>
         </member>
-        <member name="M:Boilerplate.Web.Controllers.MessagesController.GetMessages">
+        <member name="M:Boilerplate.Web.Controllers.ArticlesController.GetArticles">
             <summary>
-            Get a list of messages
+            Get a list of Articles
             </summary>
-            <returns>A list of messages</returns>
+            <returns>A list of Articles</returns>
         </member>
-        <member name="M:Boilerplate.Web.Controllers.MessagesController.GetMessage(System.Int32)">
+        <member name="M:Boilerplate.Web.Controllers.ArticlesController.GetArticle(System.Int32)">
             <summary>
-            Get a message
+            Get a article
             </summary>
-            <param name="id">Message id</param>
-            <returns>A message</returns>
+            <param name="id">Article id</param>
+            <returns>A article</returns>
         </member>
     </members>
 </doc>
