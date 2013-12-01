@@ -22,16 +22,15 @@ namespace Boilerplate.Data.Configuration.EntityFramework
         {
             var now = DateTime.Now;
 
-            foreach (var entry in ChangeTracker.Entries().Where(e => e.State == EntityState.Added))
+            foreach (var entry in ChangeTracker.Entries().Where(e => e.State == EntityState.Added || e.State == EntityState.Modified))
             {
-                entry.Property("CreatedDate").CurrentValue = now;
+                if (entry.State == EntityState.Added)
+                {
+                    entry.Property("CreatedDate").CurrentValue = now;
+                    
+                }
                 entry.Property("ModifiedDate").CurrentValue = now;
             }
-
-            foreach (var entry in ChangeTracker.Entries().Where(e => e.State == EntityState.Modified))
-            {
-                entry.Property("ModifiedDate").CurrentValue = now;
-            }   
         }
 
         public override int SaveChanges()
