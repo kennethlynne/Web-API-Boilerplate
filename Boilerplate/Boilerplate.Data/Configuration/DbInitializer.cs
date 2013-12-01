@@ -10,7 +10,7 @@ namespace Boilerplate.Data.Configuration
         {
             UnitOfWork uow = new UnitOfWork(context);
 
-            uow.ArticleRepository.Insert(new Article { Body = "<p>Heyo content!</p>", Title = "Title" });
+            uow.ArticleRepository.Insert(new Article { Body = "<p>Heyo content!</p>", Title = "Title" , Ignored = "NOT OUTPUTTEDEDED"});
             uow.SaveChanges();
         }
     }
