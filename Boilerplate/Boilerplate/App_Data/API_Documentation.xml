@@ -418,27 +418,10 @@
             </summary>
             <param name="documentPath">The physical path to XML document.</param>
         </member>
-        <member name="T:Boilerplate.Web.Controllers.MessageController">
+        <member name="T:Boilerplate.Web.Controllers.MessagesController">
             <summary>
             Messages
             </summary>
-        </member>
-        <member name="M:Boilerplate.Web.Controllers.MessageController.#ctor(Boilerplate.Data.Interfaces.Services.IMessagingService)">
-            <param name="messagingService"></param>
-        </member>
-        <member name="M:Boilerplate.Web.Controllers.MessageController.GetMessage(System.String)">
-            <summary>
-            Echo a message
-            </summary>
-            <param name="message"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Boilerplate.Web.Controllers.MessageController.GetMessageById(System.Int32)">
-            <summary>
-            Echo message pluss a number
-            </summary>
-            <param name="id"></param>
-            <returns></returns>
         </member>
     </members>
 </doc>
