@@ -8,8 +8,6 @@ namespace Boilerplate.Data.Configuration
     {
         public BoilerplateDbContext() : base("Boilerplate") { }
 
-        DbSet<Message> Messages { get; set; }
-
         static BoilerplateDbContext()
         {
             Database.SetInitializer(new DbInitializer());
@@ -19,5 +17,6 @@ namespace Boilerplate.Data.Configuration
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
         }
+
     }
 }
