@@ -1,74 +1,118 @@
 ﻿using Boilerplate.Data;
 using Boilerplate.Models;
 using Boilerplate.Web.CORS;
-using System;
-using System.Collections.Generic;
+using Ninject;
+using System.Data.Entity.Infrastructure;
+using System.Linq;
 using System.Net;
-using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
+using System.Web.Http.Description;
 
 namespace Boilerplate.Web.Controllers
 {
-    /// <summary>
-    /// Messages
-    /// </summary>
     [RoutePrefix("api")]
-    //[EnableCors(origins: "http://www.example.com", headers: "accept,content-type,origin,x-my-header", methods: "get,post", SupportsCredentials = true)]
     [CustomCORS]
     public class MessagesController : ApiController
     {
-        private readonly UnitOfWork _uow;
+        [Inject]
+        public UnitOfWork _uow { get; set; }
 
-        public MessagesController(UnitOfWork UoW)
-        {
-            _uow = UoW;
-        }
-
+        // GET api/Message
         [Route("messages/")]
-        public IEnumerable<Message> GetAll()
+        public IQueryable<Message> GetMessages()
         {
             return _uow.MessageRepository.Get();
         }
 
+        // GET api/Message/5
+        [ResponseType(typeof(Message))]
         [Route("messages/{id:int}")]
-        public Message GetById(int id)
+        public async Task<IHttpActionResult> GetMessage(int id)
         {
-            var message = _uow.MessageRepository.GetById(id);
-
+            Message message = await _uow.MessageRepository.GetByIdAsync(id);
             if (message == null)
             {
-                var resp = new HttpResponseMessage(HttpStatusCode.NotFound)
-                               {
-                                   Content = new StringContent(string.Format("No message with ID = {0}", id)),
-                                   ReasonPhrase = "Message ID Not Found"
-                               };
-                throw new HttpResponseException(resp);
+                return NotFound();
             }
-            return message;
+
+            return Ok(message);
         }
 
-        [Route("messages")]
-        public HttpResponseMessage Post(Message message)
+        // PUT api/Message/5
+        [Route("messages/{id:int}", Name = "GetMessageById")]
+        public async Task<IHttpActionResult> PutMessage(int id, Message message)
         {
             if (!ModelState.IsValid)
             {
-                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
+                return BadRequest(ModelState);
             }
 
-            var response = Request.CreateResponse(HttpStatusCode.Created);
+            if (id != message.Id)
+            {
+                return BadRequest();
+            }
 
-            _uow.MessageRepository.Insert(new Message { Text = DateTime.Now.ToString("yyyyMMddHHmmss") });
-            _uow.Save();
+            _uow.MessageRepository.Insert(message);
 
-            //string uri = Url.Link("MessagesController.GetById", new { id = 1 });
-            //response.Headers.Location = new Uri(uri);
+            try
+            {
+                await _uow.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (_uow.MessageRepository.GetById(id) == null)
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
 
-            return response;
+            return StatusCode(HttpStatusCode.Created);
+        }
+
+        // POST api/Message
+        [ResponseType(typeof(Message))]
+        [Route("messages")]
+        public async Task<IHttpActionResult> PostMessage(Message message)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            _uow.MessageRepository.Insert(message);
+            await _uow.SaveChangesAsync();
+
+            return CreatedAtRoute("GetMessageById", new { id = message.Id }, message);
+        }
+
+        // DELETE api/Message/5
+        [ResponseType(typeof(Message))]
+        [Route("messages/{id:int}")]
+        public async Task<IHttpActionResult> DeleteMessage(int id)
+        {
+            Message message = await _uow.MessageRepository.GetByIdAsync(id);
+            if (message == null)
+            {
+                return NotFound();
+            }
+
+            _uow.MessageRepository.Delete(message);
+            await _uow.SaveChangesAsync();
+
+            return Ok(message);
         }
 
         protected override void Dispose(bool disposing)
         {
-            _uow.Dispose();
+            if (disposing)
+            {
+                _uow.Dispose();
+            }
             base.Dispose(disposing);
         }
     }
