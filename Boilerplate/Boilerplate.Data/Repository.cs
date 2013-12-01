@@ -49,6 +49,7 @@ namespace Boilerplate.Data
         public virtual void Insert(TEntity entity)
         {
             DbSet.Add(entity);
+            Context.Entry(entity).State = EntityState.Added;
         }
 
         public virtual void Delete(object id)

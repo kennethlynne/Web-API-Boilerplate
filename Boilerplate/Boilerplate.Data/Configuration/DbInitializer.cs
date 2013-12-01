@@ -1,6 +1,6 @@
-﻿using System.Data.Entity;
-using Boilerplate.Data.Configuration.EntityFramework;
+﻿using Boilerplate.Data.Configuration.EntityFramework;
 using Boilerplate.Models;
+using System.Data.Entity;
 
 namespace Boilerplate.Data.Configuration
 {
@@ -10,7 +10,7 @@ namespace Boilerplate.Data.Configuration
         {
             UnitOfWork uow = new UnitOfWork(context);
 
-            uow.MessageRepository.Insert(new Message {Text = "Hello world!"});
+            uow.ArticleRepository.Insert(new Article { Body = "<p>Heyo content!</p>", Title = "Title" });
             uow.SaveChanges();
         }
     }
