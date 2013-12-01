@@ -1,7 +1,4 @@
-﻿using Boilerplate.Data;
-using Boilerplate.Data.Interfaces.Services;
-using Boilerplate.Tests.Mocks;
-using Boilerplate.Web.Controllers;
+﻿using Boilerplate.Web.Controllers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Boilerplate.Tests.Controllers
@@ -12,12 +9,12 @@ namespace Boilerplate.Tests.Controllers
         [TestMethod]
         public void TestMethod1()
         {
-            IMessagingService service = new MockMessagingService();
-            MessageController controller = new MessageController(service);
-            
-            var result = controller.GetMessage("Hello world");
+            //IMessagingService service = new MockMessagingService();
+            //MessagesController controller = new MessagesController(service);
 
-            Assert.AreEqual("Hello world, your mock says hi!", result.Text);
+            //var result = controller.GetById(1);
+
+            //Assert.AreEqual("Hello world, your mock says hi!", result.Text);
         }
     }
 }

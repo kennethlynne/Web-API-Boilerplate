@@ -56,7 +56,6 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Controllers\MessageControllerTests.cs" />
-    <Compile Include="Mocks\MockMessagingService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
