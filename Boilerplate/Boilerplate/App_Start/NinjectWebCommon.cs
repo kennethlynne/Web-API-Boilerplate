@@ -1,6 +1,7 @@
 using Ninject.Syntax;
 using System.Web.Http;
 using System.Web.Http.Dependencies;
+using Ninject.Extensions.Conventions;
 
 [assembly: WebActivator.PreApplicationStartMethod(typeof(Boilerplate.Web.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivator.ApplicationShutdownMethodAttribute(typeof(Boilerplate.Web.App_Start.NinjectWebCommon), "Stop")]
@@ -56,7 +57,7 @@ namespace Boilerplate.Web.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-            //kernel.Bind<UnitOfWork>().To<UnitOfWork>();
+            kernel.Bind(x => x.FromThisAssembly().SelectAllClasses().BindAllInterfaces());
         }
     }
 
