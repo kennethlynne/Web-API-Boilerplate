@@ -1,12 +1,14 @@
 ﻿using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
-using Boilerplate.Models;
 
 namespace Boilerplate.Data.Configuration
 {
     public class BoilerplateDbContext : DbContext
     {
-        public BoilerplateDbContext() : base("Boilerplate") { }
+        public BoilerplateDbContext()
+            : base("Boilerplate")
+        {
+        }
 
         static BoilerplateDbContext()
         {
@@ -17,6 +19,5 @@ namespace Boilerplate.Data.Configuration
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
         }
-
     }
 }
