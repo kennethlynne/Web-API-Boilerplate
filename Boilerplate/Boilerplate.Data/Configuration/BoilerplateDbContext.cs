@@ -4,12 +4,9 @@ using Boilerplate.Models;
 
 namespace Boilerplate.Data.Configuration
 {
-    class BoilerplateDbContext : DbContext
+    public class BoilerplateDbContext : DbContext
     {
-        public BoilerplateDbContext() : base("Boilerplate")
-        {
-            
-        }
+        public BoilerplateDbContext() : base("Boilerplate") { }
 
         DbSet<Message> Messages { get; set; }
 
