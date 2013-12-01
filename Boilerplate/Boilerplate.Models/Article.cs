@@ -1,4 +1,5 @@
 ﻿using Boilerplate.Models.Interfaces;
+using Newtonsoft.Json;
 using System;
 using System.Web.Mvc;
 
@@ -18,5 +19,8 @@ namespace Boilerplate.Models
 
         [AllowHtml]
         public string Body { get; set; }
+
+        [JsonIgnore]
+        public string Ignored { get; set; }
     }
 }

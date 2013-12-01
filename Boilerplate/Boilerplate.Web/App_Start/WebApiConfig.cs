@@ -1,4 +1,4 @@
-﻿using System.Linq;
+﻿using Newtonsoft.Json.Serialization;
 using System.Web.Http;
 
 namespace Boilerplate.Web.App_Start
@@ -9,9 +9,16 @@ namespace Boilerplate.Web.App_Start
         {
             config.MapHttpAttributeRoutes();
 
-            //Disable XML support, rmove as needed.
-            var appXmlType = config.Formatters.XmlFormatter.SupportedMediaTypes.FirstOrDefault(m => m.MediaType == "application/xml");
-            config.Formatters.XmlFormatter.SupportedMediaTypes.Remove(appXmlType);
+            var formatters = config.Formatters;
+
+            formatters.Remove(formatters.XmlFormatter); //Disable XML support
+
+            var jsonFormatter = formatters.JsonFormatter;
+
+            jsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+            jsonFormatter.SerializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore;
+            jsonFormatter.SerializerSettings.DateFormatHandling = Newtonsoft.Json.DateFormatHandling.MicrosoftDateFormat;
+            jsonFormatter.SerializerSettings.DateTimeZoneHandling = Newtonsoft.Json.DateTimeZoneHandling.Utc;
 
             //var cors = new EnableCorsAttribute("*", "*", "*"); //Enable CORS globally
             config.EnableCors();
