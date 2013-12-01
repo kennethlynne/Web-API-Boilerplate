@@ -1,7 +1,8 @@
-﻿using Boilerplate.Models.Interfaces;
-using Newtonsoft.Json;
-using System;
+﻿using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
+using Boilerplate.Models.Interfaces;
+using System;
+using Newtonsoft.Json;
 
 namespace Boilerplate.Models
 {
@@ -15,6 +16,7 @@ namespace Boilerplate.Models
 
         public DateTime? PublishedDate { get; set; }
 
+        [Required]
         public string Title { get; set; }
 
         [AllowHtml]
