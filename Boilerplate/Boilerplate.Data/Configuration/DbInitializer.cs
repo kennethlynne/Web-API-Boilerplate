@@ -1,4 +1,5 @@
 ﻿using System.Data.Entity;
+using Boilerplate.Data.Configuration.EntityFramework;
 using Boilerplate.Models;
 
 namespace Boilerplate.Data.Configuration

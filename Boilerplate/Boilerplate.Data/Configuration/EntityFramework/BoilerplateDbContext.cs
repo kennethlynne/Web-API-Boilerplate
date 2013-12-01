@@ -1,7 +1,7 @@
 ﻿using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 
-namespace Boilerplate.Data.Configuration
+namespace Boilerplate.Data.Configuration.EntityFramework
 {
     public class BoilerplateDbContext : DbContext
     {

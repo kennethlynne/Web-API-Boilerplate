@@ -51,7 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Configuration\BoilerplateDbContext.cs" />
+    <Compile Include="Configuration\EntityFramework\BoilerplateDbContext.cs" />
     <Compile Include="Configuration\DbInitializer.cs" />
     <Compile Include="Interfaces\Repositories\IRepository.cs" />
     <Compile Include="Repository.cs" />
@@ -68,9 +68,7 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Configuration\EntityFramework\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

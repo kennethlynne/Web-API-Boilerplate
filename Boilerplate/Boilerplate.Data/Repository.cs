@@ -1,4 +1,4 @@
-﻿using Boilerplate.Data.Configuration;
+﻿using Boilerplate.Data.Configuration.EntityFramework;
 using Boilerplate.Data.Interfaces.Repositories;
 using System;
 using System.Data.Entity;

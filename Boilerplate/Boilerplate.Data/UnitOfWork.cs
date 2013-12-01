@@ -1,4 +1,4 @@
-﻿using Boilerplate.Data.Configuration;
+﻿using Boilerplate.Data.Configuration.EntityFramework;
 using Boilerplate.Models;
 using System;
 using System.Threading.Tasks;
