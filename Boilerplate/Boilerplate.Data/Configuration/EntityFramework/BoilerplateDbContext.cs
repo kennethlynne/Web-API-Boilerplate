@@ -9,7 +9,7 @@ namespace Boilerplate.Data.Configuration.EntityFramework
     public class BoilerplateDbContext : DbContext
     {
         public BoilerplateDbContext()
-            : base("DefaultConnection")
+            : base("BoilerplateDb")
         {
         }
 
