@@ -45,9 +45,9 @@ namespace Boilerplate.Data.Configuration.EntityFramework
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
 
-            modelBuilder.Entity<Article>().Property(a => a.CreatedDate).HasColumnType("datetime2");
-            modelBuilder.Entity<Article>().Property(a => a.ModifiedDate).HasColumnType("datetime2");
-            modelBuilder.Entity<Article>().Property(a => a.PublishedDate).HasColumnType("datetime2");
+            modelBuilder.Entity<Article>().Property(a => a.CreatedDate).HasColumnType("datetime2").HasPrecision(0);
+            modelBuilder.Entity<Article>().Property(a => a.ModifiedDate).HasColumnType("datetime2").HasPrecision(0);
+            modelBuilder.Entity<Article>().Property(a => a.PublishedDate).HasColumnType("datetime2").HasPrecision(0);
         }
     }
 }
