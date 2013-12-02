@@ -26,7 +26,7 @@ namespace Boilerplate.Web.Controllers
         /// Get a list of Articles
         /// </summary>
         /// <returns>A list of Articles</returns>
-        [Route("Articles/")]
+        [Route("articles/")]
         public IQueryable<Article> GetArticles()
         {
             return _uow.ArticleRepository.Get();
@@ -39,7 +39,7 @@ namespace Boilerplate.Web.Controllers
         /// <param name="id">Article id</param>
         /// <returns>A article</returns>
         [ResponseType(typeof(Article))]
-        [Route("Articles/{id:int}")]
+        [Route("articles/{id:int}")]
         public async Task<IHttpActionResult> GetArticle(int id)
         {
             Article article = await _uow.ArticleRepository.GetByIdAsync(id);
@@ -52,7 +52,7 @@ namespace Boilerplate.Web.Controllers
         }
 
         // PUT api/Article/5
-        [Route("Articles/{id:int}", Name = "GetArticleById")]
+        [Route("articles/{id:int}", Name = "GetArticleById")]
         public async Task<IHttpActionResult> PutArticle(int id, Article article)
         {
             if (!ModelState.IsValid)
@@ -88,7 +88,7 @@ namespace Boilerplate.Web.Controllers
 
         // POST api/Article
         [ResponseType(typeof(Article))]
-        [Route("Articles")]
+        [Route("articles")]
         public async Task<IHttpActionResult> PostArticle(Article article)
         {
             if (!ModelState.IsValid)
@@ -104,7 +104,7 @@ namespace Boilerplate.Web.Controllers
 
         // DELETE api/Article/5
         [ResponseType(typeof(Article))]
-        [Route("Articles/{id:int}")]
+        [Route("articles/{id:int}")]
         public async Task<IHttpActionResult> DeleteArticle(int id)
         {
             Article article = await _uow.ArticleRepository.GetByIdAsync(id);
